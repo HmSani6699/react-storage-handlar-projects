@@ -17,4 +17,9 @@ const meinus = (first, second) => {
     return first - second
 }
 
-export { add, multiply, meinus }
+
+
+const bag = (first, second) => {
+    return first / second
+}
+export { add, multiply, meinus, bag }
