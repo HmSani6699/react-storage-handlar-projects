@@ -8,8 +8,8 @@ const add = (first, second) => {
 
 //-------- malty line export ---------//
 
-const malty = (first, second) => {
+const multiply = (first, second) => {
     return first * second
 }
 
-export { add, malty }
+export { add, multiply }
