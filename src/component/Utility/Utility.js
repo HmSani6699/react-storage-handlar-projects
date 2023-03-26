@@ -6,10 +6,15 @@ const add = (first, second) => {
 // export default add
 
 
-//-------- malty line export ---------//
+//-------- multi line export ---------//
 
 const multiply = (first, second) => {
     return first * second
 }
 
-export { add, multiply }
+
+const meinus = (first, second) => {
+    return first - second
+}
+
+export { add, multiply, meinus }
