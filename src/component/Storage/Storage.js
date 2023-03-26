@@ -58,7 +58,34 @@ const removeDb = (id) => {
     }
 }
 
+
+//-------------- single cart info delete -------------//
+
+const deleteItem = (id) => {
+    const getCart = localStorage.getItem('shopping-cart');
+    if (getCart) {
+        const shoppingCart = JSON.parse(getCart);
+        const objKeys = Object.keys(shoppingCart);
+        objKeys.find(key => {
+            if (key === id) {
+                if (shoppingCart[id] === 0) {
+                    return
+                }
+                shoppingCart[id] = shoppingCart[id] - 1;
+                localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
+            }
+        })
+    }
+}
+
+//-------------- full cart react -------------//
+const reactButton = () => {
+    localStorage.removeItem('shopping-cart')
+}
+
 export {
     dataStorage,
-    removeDb
+    removeDb,
+    deleteItem,
+    reactButton
 }

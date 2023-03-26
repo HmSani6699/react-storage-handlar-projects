@@ -1,5 +1,5 @@
 import React from 'react';
-import { dataStorage, removeDb } from '../Storage/Storage';
+import { dataStorage, deleteItem, reactButton, removeDb } from '../Storage/Storage';
 import './Cosmetic.css'
 const cosmetic = {
     border: '2px solid gray',
@@ -12,11 +12,28 @@ const addBtnStyle = {
     padding: '8px 15px',
     borderRadius: '15px',
     border: '2px solid gray',
-    backgroundColor: 'orange',
+    backgroundColor: 'green',
     color: 'white',
     cursor: 'pointer'
 }
 const removeBtnStyle = {
+    padding: '8px 15px',
+    borderRadius: '15px',
+    border: '2px solid gray',
+    backgroundColor: 'orange',
+    color: 'white',
+    cursor: 'pointer'
+}
+
+const singleItemDelete = {
+    padding: '8px 15px',
+    borderRadius: '15px',
+    border: '2px solid gray',
+    backgroundColor: 'blue',
+    color: 'white',
+    cursor: 'pointer'
+}
+const reactBtn = {
     padding: '8px 15px',
     borderRadius: '15px',
     border: '2px solid gray',
@@ -35,9 +52,14 @@ const Cosmetic = (props) => {
             <h2>Buy this: {name}</h2>
             <p>Only for: ${price}</p>
             <p><small>it has id: {id}</small></p>
+
             <button onClick={() => dataStorage(id)} style={addBtnStyle}>Add to cart</button>
 
+            <button onClick={() => deleteItem(id)} style={singleItemDelete}>Delete item</button>
+
             <button onClick={() => removeDb(id)} style={removeBtnStyle}>Remove cart</button>
+
+            <button onClick={reactButton} style={reactBtn}>React </button>
         </div>
     );
 };
