@@ -1,4 +1,5 @@
 import React from 'react';
+import { dataStorage } from '../Storage/Storage';
 import './Cosmetic.css'
 const cosmetic = {
     border: '2px solid gray',
@@ -16,7 +17,7 @@ const addBtnStyle = {
 }
 
 
-const addButton = (id) => console.log(id);
+const addButton = (id) => dataStorage(id);
 
 
 
