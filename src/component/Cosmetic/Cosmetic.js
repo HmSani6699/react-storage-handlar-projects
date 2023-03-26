@@ -1,5 +1,5 @@
 import React from 'react';
-import { dataStorage } from '../Storage/Storage';
+import { dataStorage, removeDb } from '../Storage/Storage';
 import './Cosmetic.css'
 const cosmetic = {
     border: '2px solid gray',
@@ -37,7 +37,7 @@ const Cosmetic = (props) => {
             <p><small>it has id: {id}</small></p>
             <button onClick={() => dataStorage(id)} style={addBtnStyle}>Add to cart</button>
 
-            <button style={removeBtnStyle}>Remove cart</button>
+            <button onClick={() => removeDb(id)} style={removeBtnStyle}>Remove cart</button>
         </div>
     );
 };

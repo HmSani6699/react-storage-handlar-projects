@@ -1,3 +1,5 @@
+//---------cart info save to localStorage-----------//
+
 // const dataStorage = id => {
 //     let shoppingCart;
 //     const storedCart = localStorage.getItem('shopping-cart');
@@ -22,37 +24,6 @@
 //     localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
 // }
 
-
-// const dataStorage = (id) => {
-//     const quantity = localStorage.getItem(id);
-//     if (quantity) {
-//         const newQuantity = +quantity + 1;
-//         localStorage.setItem(id, newQuantity)
-//     }
-//     else {
-//         localStorage.setItem(id, 1)
-//     }
-// }
-// const dataStorage = (id) => {
-//     let shoppingCart = {}
-//     const storedCard = localStorage.getItem('shopping-cart');
-//     if (storedCard) {
-//         shoppingCart = JSON.parse(storedCard);
-//         if (shoppingCart[id]) {
-//             shoppingCart[id] = shoppingCart[id] + 1;
-//             localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
-//         }
-//         else {
-//             shoppingCart[id] = 1;
-//             localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
-//         }
-//     }
-//     else {
-//         shoppingCart[id] = 1;
-//         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
-//     }
-// }
-
 const dataStorage = (id) => {
     let shoppingCart = {};
     const getCart = localStorage.getItem('shopping-cart');
@@ -70,4 +41,24 @@ const dataStorage = (id) => {
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
     }
 }
-export { dataStorage }
+
+//----------cart info remove to localStorage -----------//
+
+const removeDb = (id) => {
+    const getCart = localStorage.getItem('shopping-cart');
+    if (getCart) {
+        const shoppingCart = JSON.parse(getCart);
+        const objKeys = Object.keys(shoppingCart);
+        objKeys.find(key => {
+            if (key === id) {
+                delete shoppingCart[key]
+                localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
+            }
+        })
+    }
+}
+
+export {
+    dataStorage,
+    removeDb
+}
