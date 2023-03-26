@@ -1,12 +1,10 @@
 import './App.css';
-import Cosmetic from './component/Cosmetics/Cosmetic';
-import Shoes from './component/Shoes/Shoes';
+import Cosmetics from './component/Cosmetics/Cosmetics';
 
 function App() {
   return (
     <div className="App">
-      <Cosmetic></Cosmetic>
-      <Shoes></Shoes>
+      <Cosmetics></Cosmetics>
     </div>
   );
 }
