@@ -22,4 +22,22 @@ const meinus = (first, second) => {
 const bag = (first, second) => {
     return first / second
 }
-export { add, multiply, meinus, bag }
+
+
+// const productPrice = products => {
+//     const total = products.reduce((previous, currant) => previous + currant.price, 0);
+//     return total
+// }
+const productPrice = products => {
+    const reduce = (previous, currant) => previous + currant.price;
+    const total = products.reduce(reduce, 0);
+    return total
+}
+
+export {
+    add,
+    multiply,
+    meinus,
+    bag,
+    productPrice as totalReduce
+}

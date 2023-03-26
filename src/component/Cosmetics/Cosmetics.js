@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cosmetic from '../Cosmetic/Cosmetic';
+import { totalReduce } from '../Utility/Utility';
 
 const Cosmetics = () => {
     // const cosmetics = [
@@ -37,6 +38,7 @@ const Cosmetics = () => {
     //     }
     // ];
     const [cosmetics, setCosmetics] = useState([]);
+
     useEffect(() => {
         fetch('data.json')
             .then(res => res.json())
@@ -45,6 +47,7 @@ const Cosmetics = () => {
     return (
         <div>
             <h1>Hallo cosmetics laver</h1>
+            <p>all cosmetics price: {totalReduce(cosmetics)}</p>
             {
                 cosmetics.map(cosmetic => <Cosmetic
                     key={cosmetic.id}
